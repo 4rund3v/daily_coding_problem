@@ -16,8 +16,12 @@ You should return the following tree:
   b   c
  / \ / \
 d  e f  g
-"""
 
+
+
+preorder traversal - > root -> left -> right
+inorder traversal - > left -> root -> right
+"""
 
 class Node:
     def __init__(self, data):
@@ -26,34 +30,40 @@ class Node:
         self.right = ''
 
     def __str__(self):
-        return f"""{self.left} - {self.data} - {self.right}"""
+        return f""" {self.left} - {self.data} - {self.right}"""
 
-def reconstruct_tree(preorder, inorder, start, end):
+def reconstruct_tree(inorder, preorder, start, end):
     """
-    Reconstructs the tree recursively, 
-    taking the root order from the preorder traversal
-    and the subtress from the inorder traversals
+     1st recursion call ( post tree_index - 1)
+            inorder; preorder; start; end;
+            [b, a ,c]  [a, b, c]  0     2
+        left subtree (root_index -> 1) ( post tree_index - 2)
+            [b, a ,c]  [a, b, c]  0      0 
+        right subtree ( root_index ->1 )   ( post tree_index - 3)
+            [b, a ,c]  [a, b, c]  2      2
     """
     global tree_index
+    print(f"[reconstruct_tree] the start , end and the tree index before access is : [{start}], [{end}], [{tree_index}]")
 
+    # preorder used to find root elements
     node = Node(preorder[tree_index])
     tree_index += 1
-
+    # indicates the leaf node
     if start == end:
         return node
 
     root_index = inorder.index(node.data)
-    node.left = reconstruct_tree(preorder, inorder, start=start, end=root_index-1)
-    node.right = reconstruct_tree(preorder, inorder, start=root_index+1, end=end)
+    node.left = reconstruct_tree(inorder, preorder, start=start, end=root_index-1)
+    node.right = reconstruct_tree(inorder, preorder,start=root_index+1, end=end)
+
     return node
 
 
 if __name__ == "__main__":
-    # left -> root -> right
-    inorder  = ["d", "b", "e", "a", "f", "c", "g"]
-    # # root -> left -> right
-    preorder = ["a", "b", "d", "e", "c", "f", "g"]
-
+    inorder = ["d", "b", "e", "a","f", "c", "g"] # [d, b, e, a, f, c, g]
+    preorder = ["a", "b", "d", "e",  "c", "f", "g"] # [a, b, d, e, c, f, g]
     tree_index = 0
-    tree = reconstruct_tree(preorder=preorder, inorder=inorder, start=0, end=len(inorder)-1)
-    print(f"[main] The tree created is :: {tree}")
+
+    tree = reconstruct_tree(inorder, preorder, start=0, end=len(inorder)-1)
+    print(f"[main] The tree constructed is ::: {tree}")
+    print(f"[main] The inorder traversal is ::: {inorder}")
