@@ -15,7 +15,6 @@ def sub_array_sum(input_array, k):
             # resize the window
             current_sum -= input_array[start]
             start += 1
-
         if current_sum == k:
             break
         end += 1
