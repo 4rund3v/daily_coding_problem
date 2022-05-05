@@ -15,6 +15,7 @@ for i in range(10):
     # def func(num=i):
     #     return num
     # functions.append(func)
+
 i = "a"
 for f in functions:
     print(f())
