@@ -1,0 +1,7 @@
+Contains the problems solved from the algo expert site
+A total of 100 problems
+  > easy - 16 problems 
+  > medium - 30 problems
+  > hard - 33 problems 
+  > v.hard - 17 problems 
+  > extreme.hard - 4 problems 
