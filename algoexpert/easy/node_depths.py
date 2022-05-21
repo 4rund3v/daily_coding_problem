@@ -1,6 +1,16 @@
 """
 Node Depths
 Find the depth of every node and return the sum of the depths of all the nodes
+ex: input 
+                      1
+                    /   \
+                 2        3
+                / \      /  \ 
+              4     5   6    7
+            /   \    
+          8       9  
+
+        output : 16
 """
 
 class Node():
@@ -57,7 +67,6 @@ if __name__ == "__main__":
     seven_node = Node(value=7)
     eight_node = Node(value=8)
     nine_node = Node(value=9)
-    ten_node = Node(value=10)
 
     root.left = two_node
     root.right = three_node
@@ -71,7 +80,6 @@ if __name__ == "__main__":
     four_node.left = eight_node
     four_node.right = nine_node
 
-    # five_node.left = ten_node
     
     res = calculate_node_depth(node=root,depth=0)
     print(f"[main] The node depth is ::: {res}")
