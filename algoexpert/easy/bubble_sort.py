@@ -7,6 +7,7 @@ Use the Bubble Sort algorithm to sort the array.
 
 Sample input: [8, 5, 2, 9, 5, 6, 3] Sample output: [2, 3, 5, 5, 6, 8, 9]
 
+*** USE WHEN NO EXTRA SPACE IS REQUIRED ***
 """
 
 def bubble_sort(arr):
