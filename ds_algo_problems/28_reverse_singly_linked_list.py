@@ -9,20 +9,12 @@ def reverse_singly_linked_list(node):
     1 -> 2 -> 3 -> 4
     null <- 1 <- 2 <- 3 <- 4
     """
-    current = node # 1
+    current = node
     prev = None
-    # 1, none
     while current:
-        # 2
-        ## 3
         next_node  = current.next
-        # None <- 1
         current.next = prev
-        # # 1 <- 2
-        # temp.next = current
-        # 1
         prev = current
-        # 2
         current = next_node
     return prev
 
