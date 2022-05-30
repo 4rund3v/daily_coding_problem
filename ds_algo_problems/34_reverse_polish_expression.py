@@ -8,6 +8,10 @@ when we encounter a symbol ( +, -, *, /) pop 2 and perform operation and add bac
 """
 
 def evaluate_reverse_polish_notation(expression):
+    """
+    Time is O(n)
+    Space: O(n)
+    """
     symbols_map = {"+": "add", "-":"subtract", "/": "divide", "*": "multiply"}
 
     stack = []
