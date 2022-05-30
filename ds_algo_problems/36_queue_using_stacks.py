@@ -13,6 +13,9 @@ empty() -> return True if the instack and outstack is empty else False ( O(1) )
 
 
 class StackQueue():
+    """
+    Space is O(n)
+    """
     def __init__(self) -> None:
         self.in_stack = []
         self.out_stack = []
